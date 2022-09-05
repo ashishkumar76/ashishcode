@@ -1,0 +1,208 @@
+/* Define a function to check whether a given number is a Prime number or not. */
+#include<iostream>
+using namespace std;
+void Prime(void);
+int main()
+{
+    Prime();
+    return 0;
+}
+void Prime(void)
+{
+    int num,i;
+    cout<<"Enter a number:";
+    cin>>num;
+    for(i=2;i<num;i++)
+    {
+        if(num%i==0)
+        break;
+    }
+    if(i==num)
+    cout<<num<<" "<<"is prime number";
+    else
+    cout<<num<<" "<<"is not prime number";
+}
+
+/*Define a function to find the highest value digit in a given number. */
+#include<iostream>
+using namespace std;
+int main()
+{
+    int num,b,c=0;
+    cout<<"Enter a number:";
+    cin>>num;
+    while(num!=0)
+    {
+        b=num%10;
+        if(c<b)
+        c=b;
+        num/=10;
+    }
+    cout<<c<<" "<<"is highest value digit";
+    return 0;
+}
+
+/* Define a function to calculate x raised to the power y */
+#include<iostream>
+using namespace std;
+int power(int,int);
+int main()
+{
+    int x,y;
+    cout<<"Enter number and power value";
+    cin>>x>>y;
+    cout<<x<<" to the power "<<y<<" is "<<power(x,y);
+    return 0;
+}
+int power(int x ,int y)
+{
+    int p=1;
+    while(y--)
+    {
+        p=p*x;
+    }
+    return p;
+}
+
+/* Define a function to check whether a given number is a term in a
+ Fibonacci series or not */
+ #include<iostream>
+ using namespace std;
+ void Fibonacci(int);
+ int main()
+ {
+    int num;
+    cout<<"Enter a number:";
+    cin>>num;
+    Fibonacci(num);
+    return 0;
+ }
+void Fibonacci(int num)
+{
+    int term1=0,term2=1,next_term;
+    while(term1<=num)
+    {
+        if(term1==num)
+        {
+           cout<<num<<" is term in fibonacci series";
+           break;
+        }
+        next_term=term1 + term2;
+        term1=term2;
+        term2=next_term;
+    }
+    if(term1!=num)
+        cout<<num<<" is not term in fibonacci series";
+}
+
+/* Define a function to swap data of two int variables
+ using call by reference */
+ #include<iostream>
+ using namespace std;
+ void swap(int&,int&);
+ int main()
+ {
+    int a,b;
+    cout<<"Enter two number:";
+    cin>>a>>b;
+    swap(a,b);
+    cout<<"After swap:"<<endl<<"a="<<a<<" "<<"b="<<b;
+    return 0;
+ }
+ void swap(int& a,int& b)
+ {
+    int p;
+    p=a;
+    a=b;
+    b=p; 
+ }
+
+/* Write a function using the default argument that is 
+able to add 2 or 3 numbers */
+#include<iostream>
+using namespace std;
+int add(int,int,int=0);
+int main()
+{
+    int a,b;
+    cout<<"Enter two number:";
+    cin>>a>>b;
+    cout<<"Sum is "<<add(a,b);
+    int c;
+    cout<<"\n"<<"Enter three number:";
+    cin>>a>>b>>c;
+    cout<<"Sum is "<<add(a,b,c);
+    return 0;
+}
+int add(int x,int y,int z)
+{
+    return x+y+z;
+}
+
+/* Define overloaded functions to calculate area of circle, area of 
+rectangle and area of triangle */
+ #include<iostream>
+ using namespace std;
+float area(int);
+int area(int,int);
+float area(int,int,int);
+int main()
+{
+    int r;
+    cout<<"Enter radius of circle:";
+    cin>>r;
+    cout<<"Area of circle="<<area(r);
+    int l,w;
+    cout<<endl<<"Enter length and bridth of rectangle:";
+    cin>>l>>w;
+    cout<<"Area of rectangle="<<area(l,w);
+    int a,b,c;
+    cout<<endl<<"Enter 3 side of trangle";
+    cin>>a>>b>>c;
+    if(a<b+c && b<a+c && c<a+b)
+        cout<<"Area of trangle="<<area(a,b,c);
+    else
+        cout<<"Trangle is not possible";
+    return 0;
+}
+float area(int r)
+{
+    return 22.0/7*r*r;
+}
+int area(int l,int w)
+{
+    return l*w;
+}
+float area(int a,int b,int c)
+{
+    float s;
+    s=(a+b+c)/2.0;
+    return s*(s-a)*(s-b)*(s-c);
+}
+
+/* Write functions using function overloading to add two numbers
+ having different data types */
+ #include<iostream>
+ using namespace std;
+ int add(int ,int);
+ float add(float,float);
+ int main()
+ {
+    int a,b;
+    cout<<"Enter two integral number:";
+    cin>>a>>b;
+    cout<<"Add="<<add(a,b);
+    float x,y;
+    cout<<endl<<"Enter two real number:";
+    cin>>x>>y;
+    cout<<"Add="<<add(x,y);
+    return 0;
+ }
+ int add(int a,int b)
+ {
+    return a+b;
+ }
+ float add(float x,float y)
+ {
+    return x+y;
+ }
